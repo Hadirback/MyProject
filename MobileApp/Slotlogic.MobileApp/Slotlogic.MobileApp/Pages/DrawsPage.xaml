@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Slotlogic.MobileApp.Pages.DrawsPage"
+             xmlns:resx="clr-namespace:Slotlogic.MobileApp.Localization;assembly=Slotlogic.MobileApp"
+             xmlns:viewModels="clr-namespace:Slotlogic.MobileApp.Models.ViewModel"
+             BackgroundImage="background.png"
+             Title="{resx:TranslateExtension Text=ToolbarDraws}">
+    
+    <ContentPage.BindingContext>
+        <viewModels:DrawsViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding DrawsList}"   
+                        x:Name="ListViewDraws" 
+                        Style="{StaticResource ListViewStyleDraws}"
+                        RefreshCommand="{Binding RefreshCommand}"
+                        IsRefreshing="{Binding IsRefreshing}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Padding="5,0,5,0">
+                                    <Frame Style="{StaticResource FrameStyleDraws}">
+                                        <Label Text="{Binding DrawName}" Style="{StaticResource LabelStyleHeaderDraw}"/>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout Padding="20,0">
+                                    
+                                    <StackLayout Padding="0,5,0,0">
+                                        
+                                        <Label x:Name="LabelDrawsPeriod" 
+                                                    Text="{resx:TranslateExtension Text=LabelDrawPeriod}"
+                                                    Style="{StaticResource LabelStyleDrawDefault}" />
+                                        
+                                        <Label x:Name="LabelDrawsPeriodValue" 
+                                                    Text="{Binding PeriodValue}"
+                                                    Style="{StaticResource LabelStyleDrawValue}"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,5,0,0">
+                                        
+                                        <Label x:Name="LabelDrawsFinal" 
+                                                    Text="{resx:TranslateExtension Text=LabelDrawFinal}"
+                                                    Style="{StaticResource LabelStyleDrawDefault}"/>
+                                        
+                                        <Label x:Name="LabelDrawFinalDateValue" 
+                                                    Text="{Binding FinalDateValue}"
+                                                    Style="{StaticResource LabelStyleDrawValue}"/> 
+                                        
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,5,0,0">
+                                        
+                                        <Label x:Name="LabelDrawsBonusesTill" 
+                                                    Text="{Binding BonusesTillLabel}"
+                                                    Style="{StaticResource LabelStyleDrawDefault}"/>
+                                        
+                                        <Label x:Name="LabelDrawsBonusesForPeriodValue"
+                                                    Text="{Binding BonusesForPeriod}"
+                                                    Style="{StaticResource LabelStyleDrawValue}"/>
+                                        
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,5,0,0">
+                                        
+                                        <Label x:Name="LabelDrawsBonusesForToday" 
+                                                    Text="{resx:TranslateExtension Text=LabelDrawBonusesForToday}"
+                                                    Style="{StaticResource LabelStyleDrawDefault}"/>
+
+                                        <Label x:Name="LabelDrawsBonusesForTodayValue" 
+                                                    Text="{Binding BonusesForToday}"
+                                                    Style="{StaticResource LabelStyleDrawValue}"/>
+                                        
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,5,0,8">
+                                        
+                                        <Label x:Name="LabelDrawsCoupons" 
+                                                    Text="{resx:TranslateExtension Text=LabelDrawCoupons}"
+                                                    Style="{StaticResource LabelStyleDrawDefault}"/>
+                                        
+                                        <Label x:Name="LabelDrawsCouponsValue" 
+                                                    Text="{Binding Coupons}"
+                                                    Style="{StaticResource LabelStyleDrawValue}"/>
+                                        
+                                    </StackLayout>
+                                    
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

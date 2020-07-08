@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Slotlogic.MobileApp.Pages.PlayerInfoDetailPage"  
+             xmlns:viewModels="clr-namespace:Slotlogic.MobileApp.Models.ViewModel"
+             xmlns:resx="clr-namespace:Slotlogic.MobileApp.Localization;assembly=Slotlogic.MobileApp"
+             xmlns:controls="clr-namespace:Slotlogic.MobileApp.Models.View;assembly=Slotlogic.MobileApp"
+             BackgroundImage="background.png"
+             Title="{resx:TranslateExtension Text=ToolbarTitle}">
+
+    <ContentPage.BindingContext>
+        <viewModels:PlayerInfoViewModel />
+    </ContentPage.BindingContext>
+
+    <controls:PullToRefreshLayout
+            x:Name="refreshLayout"
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsBusy}"
+            RefreshColor="Red">
+
+        <StackLayout Spacing ="0"  
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+            <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Label x:Name="LabelNoInternet" 
+                           Style="{StaticResource LabelStyleNoInternet}"
+                           AbsoluteLayout.LayoutBounds=".0,.0,1,0.035" />
+                <Label x:Name="LabelDetailHello" 
+                                Style="{StaticResource LabelStyleHello}"
+                                Text="{resx:TranslateExtension Text=LabelPlayerInfoDetailHello}"
+                                AbsoluteLayout.LayoutBounds=".15,.08,.50,.2" />
+
+                <Label x:Name="LabelDetailPlayer" 
+                                Style="{StaticResource LabelStylePlayerName}"
+                                Text="{Binding FullName}"
+                                AbsoluteLayout.LayoutBounds="1,.22,1,.40" />
+
+                <Label x:Name="LabelDetailCardNumber"
+                                Style="{StaticResource LabelStyleCardNumber}"
+                                Text="{resx:TranslateExtension Text=LabelPlayerInfoDetailCardNumber}" 
+                                AbsoluteLayout.LayoutBounds="1,.40, 1,.30" />
+
+                <Label x:Name="LabelDetailCardNumberValue" 
+                                Style="{StaticResource LabelStyleCardNumberValue}"
+                                Text="{Binding FullCardName}"
+                                AbsoluteLayout.LayoutBounds="1,.5, 1,.30" />
+
+                <Label x:Name="LabelDetailsStatus"
+                                Text="{resx:TranslateExtension Text=LabelPlayerInfoDetailStatus}" 
+                                Style="{StaticResource LabelStyleInfo}"
+                                AbsoluteLayout.LayoutBounds="0.30,.66,.5,.20" />
+
+                <Label x:Name="LabelDetailsStatusValue" 
+                                Style="{StaticResource LabelStyleInfoValue}"
+                                Text="{Binding PlayerStatus}"
+                                AbsoluteLayout.LayoutBounds="0.70,.65,.5,.20" />
+
+                <Label x:Name="LabelDetailsPts"
+                                Style="{StaticResource LabelStyleInfo}"
+                                Text="{resx:TranslateExtension Text=LabelPlayerInfoDetailPts}" 
+                                AbsoluteLayout.LayoutBounds="0.30,.80,.5,.20" />
+
+                <Label x:Name="LabelDetailsPtsValue" 
+                                Style="{StaticResource LabelStyleInfoValue}"
+                                Text="{Binding PtsBalance}"
+                                AbsoluteLayout.LayoutBounds="0.70,.79,.5,.20" />
+
+                <Label x:Name="LabelDetailsCashback" 
+                                Style="{StaticResource LabelStyleInfo}"
+                                Text="{resx:TranslateExtension Text=LabelPlayerInfoDetailCashback}"
+                                IsVisible="{Binding IsVisible}"
+                                AbsoluteLayout.LayoutBounds="0.30,.94,.5,.20"  />
+
+                <Label x:Name="LabelDetailsCashbackValue" 
+                                Style="{StaticResource LabelStyleInfoValue}"
+                                Text="{Binding CashbackAmount}"
+                                IsVisible="{Binding IsVisible}"
+                                AbsoluteLayout.LayoutBounds="0.70,.93,.5,.20" />
+            </AbsoluteLayout>
+        </StackLayout>
+    </controls:PullToRefreshLayout>
+</ContentPage>

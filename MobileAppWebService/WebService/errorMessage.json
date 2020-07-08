@@ -1,0 +1,69 @@
+{
+    "User": {
+        "1001": "Card is not registered in the system. (error code: 1001, type: User)",
+        "1002": "Card is blocked. (error code: 1002, type: User)",
+        "1003": "Card is replaced. (error code: 1003, type: User)",
+        "1004": "Card series is blocked. (error code: 1004, type: User)",
+        "1005": "Card password is incorrect. (error code: 1005, type: User)",
+        "1006": "Card is expired. (error code: 1006, type: User)",
+        "1007": "Incorrect club ID. (error code: 1007, type: User)",
+        "1101": "Empty player balance. Error in cash withdrawal operation. (error code: 1101, type: User)",
+        "1102": "The request has not yet been processed by the SlotLogic service. (error code: 1102, type: User)",
+        "1103": "ID gm is null  (error code: 1103, type: User)",
+        "1104": "The card was detached from the gaming machine.  (error code: 1104, type: User)",
+        "2007": "Player is playing. (error code: 2007, type: User)",
+        "2008": "Cashback already activated. (error code: 2008, type: User)",
+        "2009": "Cashback percent is unknown. (error code: 2009, type: User)",
+        "2010": "Cashback amount is incorrect. (error code: 2010, type: User)",
+        "2011": "Cashback is not activated (error code: 2011, type: User)"
+    },
+    "Connection":
+    {
+        "26": "Server not found or not available. (error code: 26, type: Connection)",
+        "18456": "Invalid authorization data. Check the username and password to connect to the database. (error code: 18456, type: Connection)",
+        "53": "Cannot connect to server. Check server name and connection with it. (error code: 53, type: Connection)",
+        "4060": "Could not connect to the club database. Check the name DB club in the configuration (error code: 4060, type: Connection)",
+        "3417": "Server is not responding. (error code: 3417, type: Connection)"
+    },
+    "Common":
+    {
+        "1001": "Empty initial data. (error code: 1001, type: Common)",
+        "1002": "Could not get information about the club. (error code: 1002, type: Common)",
+        "1003": "Could not get the name of the club. (error code: 1003, type: Common)",
+        "1004": "Empty values for PlayerFirstName and PlayerSurname. (error code: 1004, type: Common)",
+        "1005": "Empty club ID (error code: 1005, type: Common)",
+        "1006": "Empty is Active cashback (error code: 1006, type: Common)"
+    },
+    "Inner": {
+        "1001": "Internal error in the LogInSystem controller. (error code: 1001, type: Inner)",
+        "1002": "Could not parse PtsBalance value. (error code: 1002, type: Inner)",
+        "1003": "Could not parse CashbackAmount value. (error code: 1003, type: Inner)",
+        "1004": "Failed to create a connection string. (error code: 1004, type: Inner)",
+        "1005": "Internal error in the GetDrawInfo controller. (error code: 1005, type: Inner)",
+        "1006": "Could not get ClubInfo data when reading. (error code: 1006, type: Inner)",
+        "1007": "Could not get DrawInfo data when reading. (error code: 1007, type: Inner)",
+        "1008": "Internal error in the GetDrawInfo controller. (error code: 1008, type: Inner)",
+        "1009": "Internal error in the GetAboutClubInfo controller. (error code: 1009, type: Inner)",
+        "1010": "Could not get activate flag when reading. (error code: 1010, type: Inner)",
+        "1011": "Internal error in the SetCashbackActivate controller. (error code: 1011, type: Inner)",
+        "1012": "Could not get PlayerInfo data when reading. (error code: 1012, type: Inner)",
+        "1013": "Internal error in the AddCommandEnrollPaymentToGm controller. (error code: 1013, type: Inner)",
+        "1014": "Could not execute mobile_app_v1_add_command_enroll_payment_to_lgm procedure when reading. (error code: 1014, type: Inner)",
+        "1015": "Could not get PaymentInfo when reading. (error code: 1015, type: Inner)",
+        "1016": "Internal error in the GetHistoryPaymentToGmInfo controller. (error code: 1016, type: Inner)",
+        "1017": "Could not parse Balance value. (error code: 1017, type: Inner)",
+        "1018": "Could not get Gm Balance when reading. (error code: 1018, type: Inner)",
+        "1019": "Internal error in the GetGmBalanceInfo controller. (error code: 1019, type: Inner)",
+        "1020": "Could not execute mobile_app_v1_add_command_attach_to_lgm procedure when reading. (error code: 1020, type: Inner)",
+        "1021": "Internal error in the AddCommandAttachToGm controller. (error code: 1021, type: Inner)",
+        "1022": "Could not execute mobile_app_v1_get_status_command function when reading. (error code: 1022, type: Inner)",
+        "1023": "Internal error in the CheckCommandStatus controller. (error code: 1023, type: Inner)",
+        "1024": "Could not get execute mobile_app_v1_add_command_withdraw_payment_to_lgm procedure when reading. (error code: 1024, type: Inner)",
+        "1025": "Internal error in the AddCommandWithdrawToGm controller. (error code: 1025, type: Inner)",
+        "1026": "Could not execute mobile_app_v1_check_attachment_to_lgm procedure when reading. (error code: 1026, type: Inner)",
+        "1027": "Internal error in the CheckAttachmentToGm controller. (error code: 1027, type: Inner)",
+        "1028": "Failed to check data for null. (error code: 1028, type: Inner)",
+        "1029": "Could not execute mobile_app_v1_get_balance_current_lgm procedure when reading. (error code: 1029, type: Inner)",
+        "1030": "Internal error in the GetCurrentGmBalanceInfo controller. (error code: 1030, type: Inner)"
+    }
+}

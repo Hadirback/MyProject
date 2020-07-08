@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:Slotlogic.MobileApp.Localization"
+             x:Class="Slotlogic.MobileApp.App">
+    <Application.Resources>
+        
+        <!-- COLORS -->
+        <Color x:Key="WhiteColor">#ffffff</Color>
+        <Color x:Key="BlackColor">#000000</Color>
+        <Color x:Key="VanillaColor">#E77138</Color>
+        <Color x:Key="TextOnFrameColor">#290301</Color>
+        <Color x:Key="PalePinkColor">#e2b2b1</Color>
+        <Color x:Key="MaroonColor">#8b0000</Color>
+        <Color x:Key="TransparentColor">Transparent</Color>
+
+        
+        <OnPlatform x:Key="TextSizeEntryMainPage"
+                        x:TypeArguments="x:Double">
+            <On Platform="Android" Value="20" />
+        </OnPlatform>
+
+        
+        <!-- EXPLICIT STYLES -->
+        <Style x:Key="EntryStyleMainPage" TargetType="{x:Type Entry}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource PalePinkColor}" />
+            <Setter Property="PlaceholderColor"
+                        Value="{StaticResource PalePinkColor}" />
+            <Setter Property="FontSize"
+                        Value="{StaticResource TextSizeEntryMainPage}" />
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="PositionProportional" />
+            <Style.Triggers>
+                <Trigger TargetType="Entry"
+                             Property="IsFocused" 
+                             Value="True">
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonStyleMainPage" TargetType="{x:Type Button}">
+            <Setter Property="BackgroundColor"
+                        Value="{StaticResource MaroonColor}" />
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize"
+                        Value="{StaticResource TextSizeEntryMainPage}" />
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="PositionProportional" />
+        </Style>
+
+        <Style x:Key="ImageButtonStyleMainPage" TargetType="ImageButton">
+            <Setter Property="BackgroundColor"
+                        Value="{StaticResource TransparentColor}" />
+            <Setter Property="CornerRadius"
+                        Value="80"/>
+        </Style>
+
+        <Style x:Key="LabelStyleHello" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource PalePinkColor}" />
+            <Setter Property="FontSize"
+                        Value="22"/>
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="All"/>
+        </Style>
+
+        <Style x:Key="LabelStylePlayerName" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize"
+                        Value="26"/>
+            <Setter Property="FontAttributes"
+                        Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Center"/>
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="All"/>
+        </Style>
+
+        <Style x:Key="LabelStyleCardNumber" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource PalePinkColor}" />
+            <Setter Property="FontSize"
+                        Value="22"/>
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Center"/>
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="All"/>
+        </Style>
+
+        <Style x:Key="LabelStyleCardNumberValue" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize"
+                        Value="32"/>
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Center"/>
+            <Setter Property="FontAttributes"
+                        Value="Bold"/>
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="All"/>
+        </Style>
+
+        <Style x:Key="LabelStyleInfo" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource PalePinkColor}" />
+            <Setter Property="FontSize"
+                        Value="24"/>
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Start"/>
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="All"/>
+        </Style>
+        
+        <Style x:Key="LabelStyleInfoValue" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="Gold" />
+            <Setter Property="FontAttributes"
+                        Value="Bold"/>
+            <Setter Property="FontSize"
+                        Value="28"/>
+            <Setter Property="HorizontalTextAlignment"
+                        Value="End"/>
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="All"/>
+        </Style>
+
+        <Style x:Key="BoxViewStyleToolbarSettings" TargetType="{x:Type BoxView}">
+            <Setter Property="Color"
+                        Value="{StaticResource MaroonColor}" />
+            <Setter Property="RelativeLayout.WidthConstraint"
+                        Value="{ConstraintExpression Type=RelativeToParent, Factor=1, Property=Width}" />
+            <Setter Property="RelativeLayout.HeightConstraint"
+                        Value="{ConstraintExpression Type=RelativeToParent, Factor=0.08, Property=Height}" />
+        </Style>
+
+        <Style x:Key="ImageButtonStyleToolbarSettings" TargetType="{x:Type ImageButton}">
+            <Setter Property="BackgroundColor"
+                        Value="{StaticResource TransparentColor}" />
+            <Setter Property="RelativeLayout.WidthConstraint"
+                        Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0.08, Constant=0}" />
+            <Setter Property="RelativeLayout.HeightConstraint"
+                        Value="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=0.08,Constant=0}" />
+        </Style>
+
+        <Style x:Key="LabelStyleToolbarSettingsBack" TargetType="{x:Type Label}">
+            <Setter Property="FontSize"
+                        Value="18" />
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="RelativeLayout.WidthConstraint"
+                        Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0.5, Constant=0}" />
+            <Setter Property="RelativeLayout.HeightConstraint"
+                        Value="{ConstraintExpression Type=RelativeToParent,Property=Height, Factor=0.09,Constant=0}" />
+        </Style>
+
+        <Style x:Key="LabelStyleSettingsAppLanguage" TargetType="{x:Type Label}">
+            <Setter Property="FontSize"
+                        Value="16" />
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="VerticalOptions"
+                        Value="Center" />
+        </Style>
+
+        <Style x:Key="PickerStyleSettingsLanguage" TargetType="{x:Type Picker}">
+            <Setter Property="FontSize"
+                        Value="16" />
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+        </Style>
+
+        <Style x:Key="LabelStyleSettingsDefault" TargetType="{x:Type Label}">
+            <Setter Property="FontSize"
+                        Value="16" />
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="VerticalOptions"
+                        Value="Center" />
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+        </Style>
+
+        <Style x:Key="ListViewStyleDraws" TargetType="{x:Type ListView}">
+            <Setter Property="HasUnevenRows"
+                        Value="True" />
+            <Setter Property="IsPullToRefreshEnabled"
+                        Value="True" />
+        </Style>
+
+        <Style x:Key="FrameStyleDraws" TargetType="{x:Type Frame}">
+            <Setter Property="BackgroundColor"
+                        Value="{StaticResource VanillaColor}"/>
+            <Setter Property="Padding"
+                        Value="0" />
+            <Setter Property="CornerRadius"
+                        Value="10" />
+            <Setter Property="HeightRequest"
+                        Value="34" />
+        </Style>
+
+        <Style x:Key="LabelStyleHeaderDraw" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource TextOnFrameColor}" />
+            <Setter Property="FontSize"
+                        Value="24" />
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+        </Style>
+
+        <Style x:Key="LabelStyleDrawDefault" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource PalePinkColor}" />
+            <Setter Property="FontSize"
+                        Value="18" />
+            <Setter Property="HorizontalOptions"
+                        Value="Start" />
+        </Style>
+        
+        <Style x:Key="LabelStyleDrawValue" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize"
+                        Value="18" />
+            <Setter Property="HorizontalOptions"
+                        Value="EndAndExpand" />
+        </Style>
+
+        <Style x:Key="LabelStyleAboutClub" TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize"
+                        Value="16" />
+        </Style>
+
+        <Style x:Key="LabelStyleNoInternet" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+            <Setter Property="TextColor"
+                        Value="White" />
+            <Setter Property="BackgroundColor"
+                        Value="Red" />
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="All" />
+        </Style>
+        
+        <Style x:Key="ActivityIndicatorMainPage" TargetType="{x:Type ActivityIndicator}">
+            <Setter Property="IsRunning"
+                        Value="True" />
+            <Setter Property="AbsoluteLayout.LayoutFlags"
+                        Value="PositionProportional" />
+        </Style>
+    </Application.Resources>
+</Application>

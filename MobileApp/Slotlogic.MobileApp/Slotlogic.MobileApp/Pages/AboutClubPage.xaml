@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Slotlogic.MobileApp.Pages.AboutClubPage"
+             xmlns:resx="clr-namespace:Slotlogic.MobileApp.Localization;assembly=Slotlogic.MobileApp"
+             xmlns:vm="clr-namespace:Slotlogic.MobileApp.Models.ViewModel"
+             BackgroundImage="background.png"
+             Title="{resx:TranslateExtension Text=ToolbarAboutClub}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutClubViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="13">
+            <Label x:Name="LabelAboutClubInfo" 
+                   Text="{Binding AboutClub}"
+                   Style="{StaticResource LabelStyleAboutClub}" />
+                   
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

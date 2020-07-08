@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Slotlogic.MobileApp.Pages.MainSettingsPage"
+             xmlns:viewModels="clr-namespace:Slotlogic.MobileApp.Models.ViewModel"
+             xmlns:resx="clr-namespace:Slotlogic.MobileApp.Localization;assembly=Slotlogic.MobileApp"
+             xmlns:local="clr-namespace:Slotlogic.MobileApp.Models.View"
+             BackgroundImage="background.png">
+
+    <ContentPage.BindingContext>
+        <viewModels:MainSettingsViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <RelativeLayout>
+                
+                <BoxView x:Name="toolbarSettings" 
+                        Style="{StaticResource BoxViewStyleToolbarSettings}"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X, Factor=0}" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0}"/>
+                
+                <ImageButton Source="back.png" 
+                        Style="{StaticResource ImageButtonStyleToolbarSettings}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=toolbarSettings, Property=Height, Factor=0.03,Constant=0}"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=toolbarSettings, Property=Width, Factor=0.05, Constant=0}"
+                        Clicked="ButtonSettingsBack_Clicked"/>
+
+                <Label Text="{resx:TranslateExtension Text=ToolbarSettingsBackButton}" 
+                        Style="{StaticResource LabelStyleToolbarSettingsBack}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=toolbarSettings, Property=Height, Factor=0.29,Constant=0}"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=toolbarSettings, Property=Width, Factor=0.2, Constant=0}"/>
+                
+                <local:ColoredTableView Intent="Settings"   
+                        x:Name="TableViewMainSettings"
+                        HasUnevenRows="true"
+                        GroupHeaderColor="White"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=toolbarSettings, Property=Height, Factor=1,Constant=0}"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=toolbarSettings, Property=Width, Factor=0, Constant=0}">
+                   
+                    <TableRoot>
+                        <TableSection Title="{resx:TranslateExtension Text=LabelSettingsConfig}">
+                            <ViewCell>
+                                
+                                <StackLayout Margin="15,0" Orientation="Horizontal">
+                                    <Label Text="{resx:TranslateExtension Text=LabelSettingsAppLanguage}" 
+                                           Style="{StaticResource LabelStyleSettingsAppLanguage}"/>
+                                    <local:CustomPickerView x:Name="PickerSettingsLanguage"
+                                            Title="{resx:TranslateExtension Text=PickerSettingsTitle}"
+                                            Style="{StaticResource PickerStyleSettingsLanguage}"
+                                            ItemsSource="{Binding LanguageItems}" 
+                                            ItemDisplayBinding="{Binding Language}" 
+                                            Icon="ic_arrow_drop_down"
+                                            SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                                    </local:CustomPickerView>
+                                </StackLayout>
+                                
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="{resx:TranslateExtension Text=LabelSettingsAboutApp}">
+                            <ViewCell>
+                                
+                                <StackLayout  Margin="15,15">
+                                    <Label Text="{resx:TranslateExtension Text=LabelSettingsAboutAppInfo}" 
+                                           Style="{StaticResource LabelStyleSettingsDefault}"/>
+                                </StackLayout>
+                                
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="{resx:TranslateExtension Text=LabelSettingsContacts}">
+                            <ViewCell>
+
+                                <StackLayout  Margin="15,15">
+                                    <Label Text="{resx:TranslateExtension Text=LabelSettingsContactsInfo}" 
+                                            Style="{StaticResource LabelStyleSettingsDefault}"/>
+                                </StackLayout>
+
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                    
+                </local:ColoredTableView>
+                
+            </RelativeLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

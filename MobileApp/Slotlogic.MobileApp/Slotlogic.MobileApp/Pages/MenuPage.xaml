@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Slotlogic.MobileApp.Pages.MenuPage"
+                    Title="Menu">
+
+    <StackLayout BackgroundColor="#a32c2c">
+        <ListView x:Name="MenuItemsListView"
+                    SeparatorVisibility="Default"
+                    SeparatorColor="#FFFFFF"
+                    ItemSelected="MenuItemsListView_ItemSelected"
+                    ItemTapped="MenuItemsListView_ItemTapped"
+                    HasUnevenRows="true"         
+                    ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Grid BackgroundColor="#a32c2c" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="big_logo.png"
+                                Grid.Column="0" 
+                                Grid.Row="1"/>
+                    <Label Text="{Binding ClubName}" 
+                                Grid.Column="0"
+                                Grid.Row="2"
+                                FontSize="16"
+                                TextColor="#F5F0F0"
+                                HorizontalOptions="Center"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <Label VerticalOptions="FillAndExpand" 
+                                        VerticalTextAlignment="Center" 
+                                        Text="{Binding Title}" 
+                                        FontSize="24"
+                                        TextColor="#FFFFFF"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

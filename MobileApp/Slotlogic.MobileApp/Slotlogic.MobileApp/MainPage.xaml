@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:Slotlogic.MobileApp.Localization;assembly=Slotlogic.MobileApp"
+             xmlns:viewModel="clr-namespace:Slotlogic.MobileApp.Models.ViewModel"
+             xmlns:behavior="clr-namespace:Slotlogic.MobileApp.Services"
+             xmlns:local="clr-namespace:Slotlogic.MobileApp.Models.View"
+             x:Class="Slotlogic.MobileApp.MainPage"
+             BackgroundImage="background.png">
+
+    <ContentPage.BindingContext>
+        <viewModel:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand">
+            <Label x:Name="LabelNoInternet" 
+                   Style="{StaticResource LabelStyleNoInternet}"
+                   AbsoluteLayout.LayoutBounds=".0,.0,1,0.035" />
+            <ActivityIndicator x:Name="ActivitySpinner" 
+                               Style="{StaticResource ActivityIndicatorMainPage}" 
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,40,40" />
+            <ImageButton Source="select_icon.png" 
+                         Style="{StaticResource ImageButtonStyleMainPage}"
+                         AbsoluteLayout.LayoutBounds="1,1,54,54" 
+                         AbsoluteLayout.LayoutFlags="PositionProportional"
+                         Clicked="ImageMainButton_Clicked" />
+            
+            <Image Source="mainlogo.png"  
+                   AbsoluteLayout.LayoutBounds=".5,.06,220,200" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+            <Entry x:Name="EntryClubID" 
+                    Style="{StaticResource EntryStyleMainPage}"
+                    Placeholder="{resx:TranslateExtension Text=EntryMainClubId}" 
+                    AbsoluteLayout.LayoutBounds=".5,.40,220,60" />
+
+            <local:CustomEntryView x:Name="EntryCardNumber" 
+                    Style="{StaticResource EntryStyleMainPage}"
+                    Placeholder="{resx:TranslateExtension Text=EntryMainCardNumber}" 
+                    MaxLength="12"
+
+                    AbsoluteLayout.LayoutBounds=".5,.54,220,60" >
+                <Entry.Behaviors>
+                    <behavior:CardNumberMaskBehavior x:Name="CardNumberMask" />
+                </Entry.Behaviors>
+            </local:CustomEntryView>
+
+            <Entry x:Name="EntryPass" 
+                   Style="{StaticResource EntryStyleMainPage}"
+                    Placeholder="{resx:TranslateExtension Text=EntryMainPassword}" 
+                    IsPassword="true" 
+                    AbsoluteLayout.LayoutBounds=".5,.68,220,60" 
+                    MaxLength="4" />
+
+            <Button x:Name="MainButton" 
+                    Style="{StaticResource ButtonStyleMainPage}"
+                    Text="{resx:TranslateExtension Text=ButtonMainConnect}" 
+                    Clicked="MainButton_Clicked"
+                    AbsoluteLayout.LayoutBounds=".5,.84,220,60" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
